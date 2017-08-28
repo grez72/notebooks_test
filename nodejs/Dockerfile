@@ -27,11 +27,12 @@ RUN apt-get install libzmq-dev -y
 
 WORKDIR /tmp
 RUN mkdir -p  $HOME/.ipython/kernels/nodejs
+RUN mkdir -p /usr/local/share/jupyter/kernels/
 RUN wget https://github.com/notablemind/jupyter-nodejs/releases/download/v1.1.0/jupyter-nodejs-1.1.0.tgz
 RUN tar xf jupyter-nodejs-1.1.0.tgz
 WORKDIR /tmp/package
 RUN npm install && node install.js
-# RUN cp -R ~/.ipython/kernels/nodejs/ /usr/local/share/jupyter/kernels/
+RUN cp -R ~/.ipython/kernels/nodejs/ /usr/local/share/jupyter/kernels/
 
 WORKDIR /home/$NB_USER/work
 USER $NB_USER
