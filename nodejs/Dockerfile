@@ -7,14 +7,14 @@
 # the above mentioned dockerfiles.
 #
 # pull it:
-# docker pull grez72/notebooks_test:scipy
+# docker pull grez72/nodejs-notebook
 #
 # build it:
-# docker build -t grez72/nipype-cpu-base-notebook-level0 https://github.com/grez72/notebooks_test.git#master:scipy-plus
+# docker build -t grez72/nodejs-notebook https://github.com/grez72/notebooks_test.git#master:nodejs
 #
 # run it:
-# docker run -it --rm -p 8888:8888 grez72/notebooks_test:scipy
-# docker run --user root -it --rm -p 8888:8888 grez72/notebooks_test:scipy
+# docker run -it --rm -p 8888:8888 grez72/nodejs-notebook
+# docker run --user root -it --rm -p 8888:8888 grez72/nodejs-notebook
 #-------------------------------------------------------------------------------
 
 FROM jupyter/minimal-notebook
@@ -31,7 +31,7 @@ RUN wget https://github.com/notablemind/jupyter-nodejs/releases/download/v1.1.0/
 RUN tar xf jupyter-nodejs-1.1.0.tgz
 WORKDIR /tmp/package
 RUN npm install && node install.js
-RUN cp -R ~/.ipython/kernels/nodejs/ /usr/local/share/jupyter/kernels/
+# RUN cp -R ~/.ipython/kernels/nodejs/ /usr/local/share/jupyter/kernels/
 
 WORKDIR /home/$NB_USER/work
 USER $NB_USER
