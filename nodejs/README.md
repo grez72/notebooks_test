@@ -1,2 +1,3 @@
-# grez72/notebooks_test
- 
+# grez72/nodejs-notebook
+
+jupyter/minimal-notebook with nodejs (javascript) kernel.
